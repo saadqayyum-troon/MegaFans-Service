@@ -81,11 +81,6 @@ const Home = () => {
         GovernanceContractData.abi,
         GovernanceContractData.address
       );
-      // Mint Some tokens on signer address for staking
-      // Transaction
-      const mint_tx = await GovernanceContract.methods
-        .mint(currentSigner, 1000)
-        .send({ from: currentSigner });
 
       // Approve Tokens for staking
       // Transaction
@@ -115,11 +110,11 @@ const Home = () => {
       );
 
       // Unstake Call Static
-      await StakingContract.methods.unstake(2).call({ from: currentSigner });
+      await StakingContract.methods.unstake(1).call({ from: currentSigner });
 
       // Unstake Transaction
       const unstake_tx = await StakingContract.methods
-        .unstake(2)
+        .unstake(1)
         .send({ from: currentSigner });
     } catch (error) {
       console.log(error);
